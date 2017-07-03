@@ -1,0 +1,14 @@
+<h1>Topicを編集する</h1>
+<table class='table table-hover'>
+    <%= form_for(@topic, url: topic_path(@topic.id)) do |f| %>
+        <tr><td>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        </td></tr>
+        <tr><td>
+            <%= f.label :content %>
+            <%= f.text_field :content %>
+        </td></tr>
+    </table>
+<%= f.submit '投稿' %>
+<% end %>

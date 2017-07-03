@@ -1,0 +1,22 @@
+<h1>Topics</h1>
+<p class="flash"><%= notice %><%= alert %></p>
+<table class="table table-hover">
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>投稿者</th>
+    <th>詳細</th>
+    <th>編集</th>
+    <th>削除</th>
+  </tr>
+  <% @topics.each do |topic| %>
+  <tr>
+    <td><%= topic.title %></td>
+    <td><%= topic.content %></td>
+    <td><%= topic.user.email %></td>
+    <td><%= link_to '詳細', topic_path(topic.id), class: 'btn btn-default' %></td>
+    <td><%= link_to '編集', edit_topic_path(topic.id), class: 'btn btn-default' %></td>
+    <td><%= link_to '削除', topic_path(topic.id), class: 'btn btn-danger', method: :delete, data: {confirm: '本当に削除してもよいですか？'} %></td>
+  </tr>
+  <% end %>
+</table>
