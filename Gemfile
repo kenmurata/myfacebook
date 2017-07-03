@@ -45,7 +45,14 @@ group :development do
   gem 'spring'
   
   gem 'letter_opener_web'
+  
+  gem 'dotenv-rails'
 end
 
 gem 'twitter-bootstrap-rails'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'carrierwave'
+gem 'mini_magick'
