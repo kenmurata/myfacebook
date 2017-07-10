@@ -1,0 +1,15 @@
+<h1>ユーザ詳細</h1>
+<hr>
+<h3>profile</h3>
+<%= profile_img(@user) %><br>
+<%= @user.name %><br>
+<%= @user.email %>
+<hr>
+<h3>フォロー</h3>
+<% @user.followed_users.each do |f| %>
+  ・<%= f.name %><br>
+<% end %>
+<h3>フォロワー</h3>
+<% @user.followers.each do |fr| %>
+  ・<%= fr.name %><br>
+<% end %>

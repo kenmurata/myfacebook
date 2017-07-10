@@ -10,9 +10,13 @@ Rails.application.routes.draw do
     post :confirm, on: :collection
   end
   
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
   
   resources :relationships, only: [:create, :destroy]
+  
+  resources :conversations do
+    resources :messages
+  end
   
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
