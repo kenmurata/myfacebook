@@ -87,7 +87,5 @@ Rails.application.configure do
     domain: "ip-172-31-19-213",
     address: "localhost",
     port: 25,
-    authentication: :none,
-    enable_starttls_auto: false
   }
 end
