@@ -13,15 +13,15 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-              <li><%= link_to 'TOP', root_path %></li>
-              <li><%= link_to '新規投稿', new_topic_path %></li>
-              <li><%= link_to 'ユーザー一覧', users_path %></li>
-              <li><%= link_to 'メッセージ', conversations_path %></li>
-              <li><%= link_to 'マイページ', edit_user_registration_path %></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to '', root_path, class: 'mycssclass fa fa-home fa-lg', title: 'トップページへ' %></li>
+              <li><%= link_to '', new_topic_path, class: 'mycssclass fa fa-pencil fa-lg', title: '新規トピック投稿' %></li>
+              <li><%= link_to '', users_path, class: 'mycssclass fa fa-users fa-lg', title: 'ユーザー一覧' %></li>
+              <li><%= link_to '', conversations_path, class: 'mycssclass fa fa-envelope-o fa-lg', title: 'メッセージ一覧' %></li>
+              <li><%= link_to '', edit_user_registration_path, class: 'mycssclass fa fa-user fa-lg' ,title: 'マイページ' %></li>
+              <li><%= link_to '', destroy_user_session_path, class: 'mycssclass fa fa-sign-out fa-lg', method: :delete, title: 'サインアウト' %></li>
             <% else %>
-              <li><%= link_to 'ログイン', new_user_session_path %></li>
-              <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+              <li><%= link_to '', new_user_session_path, class: 'mycssclass fa fa-sign-in fa-lg', title: 'サインイン' %></li>
+              <li><%= link_to '', new_user_registration_path, class: 'mycssclass fa fa-plus fa-lg', title: 'サインアップ' %></li>
             <% end %>
           </ul>
         </div>
@@ -30,6 +30,8 @@
   </header>
 
 <%= yield %>
-
+  <footer>
+    <p>My Facebook 2017 Copyright K.M</p>
+  </footer>
 </body>
 </html>

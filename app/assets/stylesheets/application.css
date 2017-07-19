@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+
+header > .navbar {
+    background-color: #000080;
+}
+
+.mycssclass {
+    color: #FFFFFF !important;
+}
+
+
+footer {
+    text-align: center;
+}

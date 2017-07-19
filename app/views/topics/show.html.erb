@@ -1,25 +1,41 @@
 <p id="notice"><%= notice %></p>
-<h1>Topic詳細</h1>
-<table class="table table-hover">
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th>編集</th>
-    <th>削除</th>
-  </tr>
-  <tr>
-    <td><%= @topic.title %></td>
-    <td><%= @topic.content %></td>
-    <td><%= link_to '編集', edit_topic_path(@topic.id) %></td>
-    <td><%= link_to '削除', topic_path(@topic.id), method: :delete, data: {confirm: '本当に削除してもよいですか？'} %></td>
-  </tr>
-</table>
+<div class="container"><div class="row">
+  <div class="col-sm-12 col-md-10 col-xl-8 col-md-offset-1 col-xl-offset-2"><h1>Topic詳細</h1>
+  <table class="table table-hover">
+    <div class="row"><tr><td>
+      <div class="col-sm-2 col-md-2 col-lg-1">
+        <%= profile_img(@topic.user) %>
+      </div>
+      <div class="col-sm-10 col-md-10 col-lg-11">
+        <div class="row">
+          <div class="col-sm-12">
+            <strong><%= @topic.user.name %>さんの投稿</strong>
+          </div>
+          <div class="col-sm-12">
+            <%= @topic.created_at.strftime('%Y年%m月%d日 %H:%M:%S') %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="topic_content">
+          <%= simple_format(h(@topic.content)) %>
+        </div>
+      </div>
+    </div>
+    </td></tr>
+  </table>
+<%= link_to '戻る', :back , :class => 'btn btn-default' %>
+<% if current_user.id == @topic.user.id %>
+  <%= link_to '編集', edit_topic_path(@topic.id), class: 'btn btn-primary' %>
+  <%= link_to '削除', topic_path(@topic.id), class: 'btn btn-danger', method: :delete, data: {confirm: '本当に削除してもよいですか？'} %>
+<% end %>
+<hr>
 <p>コメント一覧</p>
 <div id="comments_area">
   <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
 </div>
 <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
-<% if current_user.id == @topic.user_id %>
-  <%= link_to '編集', edit_topic_path(@topic) %>
-<% end %>
-<%= link_to '戻る', :back %>
+
+</div></div>

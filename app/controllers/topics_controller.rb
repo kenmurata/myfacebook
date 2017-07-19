@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
     before_action :set_at_topic, only: [:show, :edit, :update, :destroy]
     
     def index
-        @topics = Topic.all.order(:id)
+        @topics = Topic.all.order("id DESC")
     end
     
     def show

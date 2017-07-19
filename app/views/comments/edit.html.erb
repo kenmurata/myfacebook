@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-1 col-md-offset-2 col-lg-offset-3 col-sm-10 col-md-8 col-lg-6">
+      <h1>コメント編集</h1>
+      <%= form_for(@comment, url: topic_comment_path(@topic.id, @comment.id)) do |f| %>
+        <%= f.label :content %>
+        <%= f.text_area :content, :class => 'form-control' %>
+        <%= f.submit '投稿', :class => 'btn btn-primary' %>
+        <%= link_to '戻る', :back , :class => 'btn btn-default' %>
+      <% end %>
+    </div>
+  </div>
+</div>

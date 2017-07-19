@@ -1,32 +1,58 @@
-<% if @over_ten %>
-  <%= link_to '以前のメッセージ', '?m=all' %>
-<% end %>
-
-<div class="ui segment">
-  <% @messages.each do |message| %>
-    <% if message.body %>
-      <% user = User.find(message.user_id) %>
-      <div class="item">
-        <div class="content">
-          <div class="header"><strong><%= user.name %></strong><%= message.message_time %></div>
-          <div class="list">
-            <div class="item">
-              <i class="right triangle icon"></i>
-              <%= message.body %>
+<div class="container">
+  <div class="row"><div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+    
+    <% if @over_ten %>
+      <%= link_to '以前のメッセージ', '?m=all' %>
+    <% end %>
+    
+    <% @messages.each do |message| %>
+        
+      <% if message.body %>
+       
+        <% user = User.find(message.user_id) %>
+          
+        <% if user.id != current_user.id %>
+          <!-- 相手のメッセージなら左側に表示 -->
+          <div class="row">
+            <div class="col-sm-11 col-md-10 col-lg-8">
+              <div class="yourmessage">
+                <div class="popover right show">
+        <% else %>
+        
+          <!-- 自分のメッセージなら右側に表示 -->
+          <div class="row">
+            <div class="col-sm-offset-1 col-sm-11 col-md-offset-2 col-md-10 col-lg-offset-4 col-lg-8">
+              <div class="mymessage">
+                <div class="popover left show">
+        <% end %>
+          
+                  <!-- 本文と顔写真 -->
+                  <div class="arrow"></div>
+                  <h4 class="popover-title">
+                    <%= message.message_time %>
+                  </h4>
+                  <div class="popover-content">
+                    <% if user.id != current_user.id %>
+                      <%= profile_img(user) %>
+                    <% end %>
+                    <%= message.body %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
+      <% end %>
+    <br>
+    
+    <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+      <div class="field">
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+      <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+      <div>
+        <%= f.submit "メッセージを送る", :class => "btn btn-primary" %>
       </div>
     <% end %>
-  <% end %>
+  </div></div>
 </div>
-
-<%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
-  <div class="field">
-    <%= f.text_area :body, class: "form-control" %>
-  </div>
-  <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
-  <div>
-    <%= f.submit "メッセージを送る" %>
-  </div>
-<% end %>
