@@ -82,12 +82,12 @@ Rails.application.configure do
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = 
   {
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
+    #user_name: ENV['SENDGRID_USERNAME'],
+    #password: ENV['SENDGRID_PASSWORD'],
     domain: "ip-172-31-19-213",
     address: "localhost",
     port: 25,
-    authentication: :login,
-    enable_starttls_auto: false
+    #authentication: :login,
+    #enable_starttls_auto: false
   }
 end
