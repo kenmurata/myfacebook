@@ -82,7 +82,7 @@ Rails.application.configure do
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = 
   {
-    user_name: ['SENDGRID_USERNAME'],
+    user_name: ENV['SENDGRID_USERNAME'],
     password: ENV['SENDGRID_PASSWORD'],
     domain: "ip-172-31-19-213",
     address: "localhost",
