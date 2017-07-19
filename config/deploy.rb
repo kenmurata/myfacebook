@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.6.0'
 
-set :application, 'Facebook'
+set :application, 'facebook'
 set :repo_url, 'https://github.com/kenmurata/myfacebook'
 
 set :branch, ENV['BRANCH'] || 'master'
