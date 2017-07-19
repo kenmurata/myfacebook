@@ -84,7 +84,7 @@ Rails.application.configure do
   {
     user_name: ['SENDGRID_USERNAME'],
     password: ENV['SENDGRID_PASSWORD'],
-    domain: "heroku.com",
+    domain: "ip-172-31-19-213",
     address: "localhost",
     port: 25,
     authentication: :plain,
