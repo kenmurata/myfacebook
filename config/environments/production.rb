@@ -88,6 +88,6 @@ Rails.application.configure do
     address: "localhost",
     port: 25,
     authentication: :plain,
-    enable_starttls_auto: true
+    enable_starttls_auto: false
   }
 end
