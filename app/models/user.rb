@@ -29,6 +29,9 @@ class User < ActiveRecord::Base
   
   def self.find_for_facebook_oauth(auth, signed_in_resource = nil)
     user = User.find_by(email: "#{auth.uid}-#{auth.provider}@example.com")
+    if  user == nil
+      user = User.find_by(provider: auth.provider, uid: auth.uid)
+    end
     
     unless user
       user = User.new(
