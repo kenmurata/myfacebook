@@ -280,4 +280,6 @@ Devise.setup do |config|
   else
     config.omniauth :facebook, ENV['FACEBOOK_ID_DEVELOPMENT'], ENV["FACEBOOK_SECRET_DEVELOPMENT"], scope: 'email', display: 'popup', info_fields: 'name, email'
   end
+  
+  config.secret_key = '7d11eb095c0dbd1fa499d80f968af277f4ad952f5e97af9dda5c8525d33b23097188f0a7460373cccacb6b78ddd47d835058c1b6555e98632afc86e35b461d28'
 end
