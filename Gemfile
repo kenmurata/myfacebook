@@ -65,3 +65,5 @@ gem 'mini_magick'
 gem 'dotenv-rails'
 gem 'unicorn'
 gem 'fog'
+
+gem 'rails_12factor', group: :production
