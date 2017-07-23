@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :followed_users, through: :relationships, source: :followed
   has_many :followers, through: :reverse_relationships, source: :follower
   
-  def updaate_with_password(params, *options)
+  def update_with_password(params, *options)
     if provider.blank?
       super
     else
