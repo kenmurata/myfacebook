@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
         @topic = @comment.topic
         respond_to do |format|
             if @comment.save
-                format.html { redirect_to topic_path(@topic), notice: 'コメント更新しました' }
+                format.html { redirect_to topic_path(@topic)}
                 format.js { render :index }
             else
                 format.html { render :new }
