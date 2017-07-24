@@ -28,7 +28,7 @@
   
   # トピックの作成
   t = Topic.new
-  t.content = Faker::DragonBall.character
+  t.content = '私の好きなビールは' + Faker::Beer.name + 'です'
   t.user_id = user.id
   t.save!
   
@@ -36,7 +36,7 @@
   c = Comment.new
   c.user_id = user.id
   c.topic_id = t.id
-  c.content = Faker::DragonBall.character
+  c.content = Faker::Job.title
   c.save!
   
 end
