@@ -9,7 +9,7 @@
   
   # ユーザ自体の作成
   name = Faker::Name.name
-  email = Faker::Internet.email
+  email = Faker::Internet.email + Faker::Code.isbn + '.' + Faker::Code.ean + '.com'
   uid = Faker::Code.isbn
   password = "password"
   User.create!(
